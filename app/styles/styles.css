@@ -67,9 +67,6 @@ br{
 	font-weight: bold;
 	text-shadow: 1px 1px 1px #fff;
 	border: 1px solid #6FD6F7;
-
-
-
 }
 
 #search input[type="submit"]:hover{
@@ -80,8 +77,6 @@ br{
 
 #page {
 	width: 800px;
-	background: rgba( 255, 255, 255, 0.3 );
-	border: 1px solid #ffffff;
 	margin: 10px auto 0px;
 	padding: 1em 2em;
 }
@@ -92,6 +87,7 @@ br{
 	background: #F7F7F7;
 	width: 250px;
 	height: 50px;
+	padding: 5px;
 	border-radius: 5px;
 	margin-right: 10px;
 }
@@ -100,10 +96,53 @@ br{
 	display: inline-block;
 	background: #F7F7F7;
 	border-radius: 5px;
-	height: 500px;
 	width: 500px;
 }
 
 #footer {
 	text-align: center;
+}
+
+.img-big {
+	width: 50px;
+	height: 50px;
+}
+
+.img-small {
+	width: 25px;
+	width: 25px;
+}
+
+.post {
+	margin: 10px;
+}
+
+.post-image {
+	display: inline-block;
+	vertical-align: top;
+}
+
+.post-username {
+	vertical-align: top;
+	color: #0279C9;
+	font-weight: bold;
+}
+
+.post-content {
+	display: inline-block;
+	margin-left: 5px;
+	vertical-align: top;
+	width: 410px;
+	max-width: 410px;
+}
+
+.post-comment {
+	background: #EDEDED;
+	padding: 0.5px;
+}
+
+.comment-content {
+	display: inline-block;
+	max-width: 350px;
+	margin-left: 0.5em;
 }
