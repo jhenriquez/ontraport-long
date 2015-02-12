@@ -26,14 +26,16 @@
 			<span>{{ user.username }}</span>
 		</div>
 		<div id="posts">
-			<span>Updates</span>
+			<span class="updates-heading">Updates</span>
 			<div class="post" data-ng-repeat="post in posts">
 				<div class="post-image">
 					<img class="img-big" data-ng-src="{{ getPosterImage(post.userId) }}" />
 				</div>
 				<div class="post-content">
-					<div class="post-username">{{ getPosterUsername(post.userId) }}</div>
-					<span>{{ post.content }}</span>
+					<div class="post-info">
+						<div class="post-username">{{ getPosterUsername(post.userId) }}</div>
+						<span>{{ post.content }}</span>
+					</div>
 					<div class="post-comment" data-ng-repeat="comment in post.comments">
 						<div class="post-image">
 							<img class="img-small" data-ng-src="{{ getPosterImage(comment.userId) }}" />
@@ -43,8 +45,8 @@
 							<span>{{ comment.content }}</span>
 						</div>
 					</div>
-					<div>
-						<textarea rows="1" data-ng-model="comment"></textarea>
+					<div class="post-comment">
+						<textarea class="comment-box" rows="1" data-ng-model="comment"></textarea>
 					</div>
 				</div>
 			</div>
