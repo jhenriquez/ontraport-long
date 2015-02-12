@@ -6,7 +6,7 @@
 	<link rel="stylesheet" type="text/css" href="styles/normalize.css" />
 	<link rel="stylesheet" type="text/css" href="styles/styles.css" />
 </head>
-<body data-ng-app="TheNetwork">
+<body data-ng-app="TheNetwork" data-ng-controller="PostsController">
 	
 	<div id="header">
 		<div id="logo">
@@ -18,9 +18,18 @@
 				<input type="submit" value="Go"/>
 			</form>
 		</div>
+		<nav>
+			<ul>
+				<li>Home</li>
+				<li>Post an update</li>
+				<li>
+					<img class="img-small" data-ng-src="{{ user.pic }}" />
+				</li>
+			</ul>
+		</nav>
 	</div>
 	
-	<div id="page" data-ng-controller="PostsController">
+	<div id="page">
 		<div id="user">
 			<img class="img-big" data-ng-src="{{ user.pic }}" />
 			<span>{{ user.username }}</span>
