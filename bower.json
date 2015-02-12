@@ -1,0 +1,31 @@
+{
+  "name": "ontraport-long",
+  "version": "0.1.0",
+  "homepage": "https://github.com/jhenriquez/ontraport-long",
+  "authors": [
+    "Julio Henriquez <julio.m.henriquez@gmail.com>"
+  ],
+  "description": "My implementation of the ontraport frontend long test.",
+  "keywords": [
+    "test",
+    "interview",
+    "ontraport"
+  ],
+  "exportsOverride": {
+    "normalize.css": {
+      "styles": ["*.css"]
+    }
+  },
+  "license": "None",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "normalize.css": "~3.0.2"
+  }
+}

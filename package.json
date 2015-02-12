@@ -1,0 +1,29 @@
+{
+  "name": "ontraport-long",
+  "version": "0.0.0",
+  "description": "My implementation of the ontraport frontend long test.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/jhenriquez/ontraport-long"
+  },
+  "keywords": [
+    "interview",
+    "test",
+    "ontraport"
+  ],
+  "author": "Julio Henriquez",
+  "license": "None",
+  "bugs": {
+    "url": "https://github.com/jhenriquez/ontraport-long/issues"
+  },
+  "homepage": "https://github.com/jhenriquez/ontraport-long",
+  "dependencies": {},
+  "devDependencies": {
+    "grunt": "~0.4.5",
+    "grunt-bower-task": "~0.4.0"
+  }
+}
