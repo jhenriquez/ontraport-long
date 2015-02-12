@@ -76,19 +76,34 @@ br{
 	
 }
 
-
-
-
-
 /*page content*/
 
-#page{
+#page {
 	width: 800px;
-	
-	/*background: rgba( 255, 255, 255, 0.3 );
-	border: 1px solid #ffffff;*/
+	background: rgba( 255, 255, 255, 0.3 );
+	border: 1px solid #ffffff;
 	margin: 10px auto 0px;
 	padding: 1em 2em;
 }
 
+#user {
+	display: inline-block;
+	vertical-align: top;
+	background: #F7F7F7;
+	width: 250px;
+	height: 50px;
+	border-radius: 5px;
+	margin-right: 10px;
+}
 
+#posts {
+	display: inline-block;
+	background: #F7F7F7;
+	border-radius: 5px;
+	height: 500px;
+	width: 500px;
+}
+
+#footer {
+	text-align: center;
+}
