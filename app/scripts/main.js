@@ -164,7 +164,7 @@ angular
       }
     };
   })
-  .controller('PostsController', function ($scope, $currentUser, $PostResource, $UserResource) {
+  .controller('HomeController', function ($scope, $currentUser, $PostResource, $UserResource) {
     $scope.user = $currentUser.get();
     $scope.posts = $PostResource.query();
 
