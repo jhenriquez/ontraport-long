@@ -125,7 +125,9 @@ nav img {
 
 .updates-heading {
 	font-weight: bold;
-	margin: 3px;
+	margin-top: 10px;
+	margin-left: 3px;
+	margin-bottom: 25px;
 }
 
 .img-big {
@@ -167,13 +169,23 @@ nav img {
 
 .post-comment {
 	background: #EDEDED;
-	padding: 0.5px;
+	padding: 1px;
+	margin-bottom: 0.5px;
+	border-bottom-right-radius: 3px;
+	border-bottom-left-radius: 3px;
 }
 
 .comment-content {
 	display: inline-block;
 	max-width: 350px;
 	margin-left: 0.5em;
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+
+.comment-image {
+	margin-top: 1em;	
+	margin-bottom: 1em;
 }
 
 .comment-box {
