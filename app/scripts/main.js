@@ -60,8 +60,9 @@ angular
       }
     };
   })
-  .factory('$PostResource', function () {
-    var postStorage = [{
+  .factory('$PostResource', function ($box) {
+    var posts = $box.isset('posts') ? $box.fetch('posts') : undefined;
+    var postStorage = posts || [{
             "id": 1,
             "userId": 1,
             "date": "",
@@ -156,7 +157,10 @@ angular
         return null;
       },
       addComment: function(comment) {
-        this.get(comment.postId).comments.push(comment);
+        var comments = this.get(comment.postId).comments;
+        comment.id = "unpersisted_" + comments.length; // simple attempt at identity :p
+        comments.push(comment);
+        $box.store('posts', postStorage);
       }
     };
   })
