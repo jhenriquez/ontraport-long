@@ -55,7 +55,9 @@
 						</div>
 					</div>
 					<div class="post-comment">
-						<textarea class="comment-box" rows="1" data-ng-model="comment"></textarea>
+						<form data-ng-submit="addComment(post.id)" data-ng-controller="CommentsController">
+							<input type="text" class="comment-box" data-ng-model="comment"/>
+						</form>
 					</div>
 				</div>
 			</div>

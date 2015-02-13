@@ -16,7 +16,7 @@ angular
   .factory('$box', function ($window) {
     return $window.Box;
   })
-  .factory('$UserResource', function ($http) {
+  .factory('$UserResource', function () {
     var usersStorage = [{
                           "id": 1,
                           "username": "James Bond",
@@ -145,7 +145,18 @@ angular
 
     return {
       query: function () {
-        return postStorage.slice();
+        return postStorage;
+      },
+      get: function (id) {
+        for (var i = 0; i < postStorage.length; i++) {
+          if (postStorage[i].id === id) {
+            return postStorage[i];
+          }
+        }
+        return null;
+      },
+      addComment: function(comment) {
+        this.get(comment.postId).comments.push(comment);
       }
     };
   })
@@ -155,9 +166,27 @@ angular
 
     $scope.getPosterImage = function (id) {
       return $UserResource.get(id).pic;
-    }
+    };
 
     $scope.getPosterUsername = function (id) {
       return $UserResource.get(id).username;
-    }
+    };
+  })
+  .controller('CommentsController', function ($scope, $PostResource, $currentUser) {
+    $scope.comment = undefined;
+    $scope.addComment = function (postId) {
+      if (!$scope.comment) {
+        // maybe I don't want to do anything :)
+        return null;
+      }
+
+      $PostResource.addComment({
+        postId: postId,
+        userId: $currentUser.get().id,
+        content: $scope.comment,
+        persisted: false
+      });
+
+      $scope.comment = undefined;
+    };
   });
