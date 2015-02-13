@@ -38,7 +38,7 @@ angular
                         {
                           "id": 4,
                           "username": "Juan Sanchez Villalobos Ramirez",
-                          "pic": "images/profile/Sean-Connery-as-James-Bond.jpg",
+                          "pic": "images/profile/Sean_Connery_as_Ramirez_in_Highlander.jpg",
                           "about": "Trained Connor in the art of sword fighting"
                         },
                         
