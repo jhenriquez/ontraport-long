@@ -6,7 +6,7 @@ angular
       link: function (scope, el, attr) {
         el.bind('keydown', function (e) {
           var key = e.keyCode || e.which;
-          if (key === 13) {
+          if (key === 13 && !e.shiftKey) {
             e.preventDefault();
             scope.$apply(attr.onEnter);
           }
