@@ -199,3 +199,35 @@ nav img {
 	width: 100%;
 	max-width: 400px;
 }
+
+.lightbox-container {
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba( 0, 0, 0, 0.9);
+	z-index: 5;
+}
+
+.lightbox {
+	display: table;
+	position: absolute;
+	top: 35%;
+	left: 30%;
+	width: 500px;
+	height: 250px;
+	background: #F7F7F7;
+	border-radius: 15px;
+}
+
+.lightbox-content {
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+}
+
+.lightbox-show {
+	display: block;
+}

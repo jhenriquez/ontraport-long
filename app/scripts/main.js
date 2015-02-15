@@ -144,6 +144,10 @@ angular
           }
         ];
 
+    function updateLocalStorate() {
+      $box.store('posts', postStorage);
+    }
+
     return {
       query: function () {
         return postStorage;
@@ -156,15 +160,20 @@ angular
         }
         return null;
       },
-      addComment: function(comment) {
+      addComment: function (comment) {
         var comments = this.get(comment.postId).comments;
         comment.id = "unpersisted_" + comments.length; // simple attempt at identity :p
         comments.push(comment);
-        $box.store('posts', postStorage);
+        updateLocalStorate();
+      },
+      postUpdate: function (update) {
+        update.id = 'unpersisted_' + postStorage.length; // Same attempt at identity :p
+        postStorage.push(update);
+        updateLocalStorate();
       }
     };
   })
-  .controller('HomeController', function ($scope, $currentUser, $PostResource, $UserResource) {
+  .controller('HomeController', function ($scope, $currentUser, $PostResource, $UserResource, $document) {
     $scope.user = $currentUser.get();
     $scope.posts = $PostResource.query();
 
@@ -174,6 +183,10 @@ angular
 
     $scope.getPosterUsername = function (id) {
       return $UserResource.get(id).username;
+    };
+
+    $scope.postUpdate = function () {      
+      angular.element($document[0].getElementsByClassName('lightbox-container')[0]).addClass('lightbox-show');
     };
   })
   .controller('CommentsController', function ($scope, $PostResource, $currentUser) {
@@ -192,5 +205,63 @@ angular
       });
 
       $scope.comment = undefined;
+    };
+  })
+  .controller('PostUpdateController', function ($scope, $document, $PostResource, $currentUser) {
+    $scope.post = undefined;
+
+    $scope.addPost = function () {
+      if (!$scope.post) { return null; }
+
+      $PostResource.postUpdate({
+        userId: $currentUser.get().id,
+        date: '',
+        content: $scope.post,
+        comments: []
+      });
+
+      clear();
+      close();
+    };
+
+    $scope.cancel = function () {
+      clear();
+      close();
+    };
+
+    function clear() {
+      $scope.post = undefined;
+    }
+
+    function close() {
+      angular.element($document[0].getElementsByClassName('lightbox-container')[0]).removeClass('lightbox-show');
+    }
+  })
+  .directive('onEnter', function () {
+    return {
+      restrict: 'A',
+      link: function (scope, el, attr) {
+        el.bind('keydown', function (e) {
+          var key = e.keyCode || e.which;
+          if (key === 13) {
+            e.preventDefault();
+            scope.$apply(attr.onEnter);
+          }
+        });
+      }
+    };
+  })
+  .directive('onEscape', function () {
+    return {
+      restrict: 'A',
+      link: function (scope, el, attr) {
+        el.bind('keydown', function (e) {
+          var key = e.keyCode || e.which;
+          if (key === 27) {
+            e.preventDefault();
+            scope.$apply(attr.onEscape);
+          }
+        });
+      }
     };
   });
